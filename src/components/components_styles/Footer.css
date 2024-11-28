@@ -1,0 +1,31 @@
+/* Footer container */
+.footer {
+    position: fixed; /* Ensure the footer is positioned relative to the viewport */
+
+    bottom: 0; /* Stick to the bottom */
+    left: 0; /* Align to the left edge */
+    width: 100%; /* Make it take up the full width of the screen */
+    height: 60px; /* Set a fixed height */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(154, 7, 69, 1) 100%, rgba(0, 212, 255, 1) 100%);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    z-index: 999; /* Ensure it's on top of other elements */
+}
+
+/* Optionally, if you want the footer to always be visible at the bottom, even on smaller content pages */
+body {
+    min-height: 100vh; /* Ensure the body takes the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styling for footer content if needed */
+.footer p {
+    color: white;
+    font-size: 16px;
+    margin: 0; /* Remove default margin */
+}

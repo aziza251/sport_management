@@ -1,0 +1,59 @@
+.player-card-container {
+width: 100%;
+height: 50%;
+    display: grid; /* Using CSS Grid for layout */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Responsive column sizing */
+    gap: 1px; /* Space between cards */
+    background-color: rgb(64,8,56); /* Background color for the container */
+    padding: 10px; /* Padding around the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-bottom: 10px; /* Space below the container */
+    margin-right: 13px; /* Space to the right of the container */
+    
+  }
+  h2{
+    color: white;
+  }
+h4{
+    display: flex;
+    justify-content: left;
+    color: white;
+    gap: 5px;
+}
+button {
+    padding: 12px 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    font-size: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+button[type="submit"] {
+    width: 70%;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35px;
+    margin-bottom: 15px;
+}
+
+button[type="submit"]:hover {
+    color: #c706a9;
+}
