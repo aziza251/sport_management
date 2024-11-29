@@ -1,6 +1,6 @@
 body {
-    min-height: 100vh; /* Make sure the body takes at least the full viewport height */
-    padding-bottom: 60px; 
+    min-height: 500vh; /* Make sure the body takes at least the full viewport height */
+    padding-bottom: 10%; 
     background: #010121;
 
 }

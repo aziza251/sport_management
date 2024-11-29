@@ -1,26 +1,41 @@
 .player-card-container {
-width: 100%;
-height: 50%;
-    display: grid; /* Using CSS Grid for layout */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Responsive column sizing */
-    gap: 1px; /* Space between cards */
-    background-color: rgb(64,8,56); /* Background color for the container */
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns */
+   /* Space between cards */
+    margin-top: 200px; /* Space above the container */
+    
     padding: 10px; /* Padding around the container */
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    margin-bottom: 10px; /* Space below the container */
-    margin-right: 13px; /* Space to the right of the container */
-    
+    gap: 50px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
   }
-  h2{
-    color: white;
-  }
-h4{
+  
+  .player-card {
+    background-color: rgb(64, 8, 56); /* Background color for the container */
+    padding: 15px; /* Space inside each card */
+    border-radius: 8px; /* Rounded corners for each card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for each card */
+    color: white; /* Default text color for cards */
+    text-align: left; /* Align text to the left */
     display: flex;
-    justify-content: left;
-    color: white;
-    gap: 5px;
-}
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  h2 {
+    color: #ffebcd; /* Light beige for player name */
+    font-size: 20px; /* Font size for player name */
+    margin-bottom: 8px; /* Space below the heading */
+  }
+  
+  h4 {
+    color: white; /* White text for details */
+    font-size: 16px; /* Font size for details */
+    margin: 5px 0; /* Margin around each detail */
+  }
+  
+ /* Button styles (if applicable) */
 button {
     padding: 12px 20px;
     background-color: #ffffff;
@@ -31,7 +46,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 20px;
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,20 +54,19 @@ button {
 button:hover {
     background-color: #ccc;
 }
-button[type="submit"] {
+
+button[type="button"] {
     width: 70%;
     background-color: #fff;
+    border: none;
     font-size: 14px;
     font-weight: bold;
     color: black;
-    margin-top: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 35px;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-left: 30px;
 }
 
-button[type="submit"]:hover {
+button[type="button"]:hover {
     color: #c706a9;
 }
+  
