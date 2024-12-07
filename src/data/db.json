@@ -1,0 +1,11 @@
+{
+  "players": [
+    {
+      "id": "b82d",
+      "name": "Ronaldo",
+      "birth": "1995-07-14",
+      "sport": "Football",
+      "team": "Portugal"
+    }
+  ]
+}

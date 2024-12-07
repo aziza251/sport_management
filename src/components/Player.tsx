@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
+import axios from "axios";
 import "./components_styles/player.css";
 
 type Player = {
@@ -11,40 +12,166 @@ type Player = {
 };
 
 const Player = () => {
-  // Initialize state with data from localStorage if available, or fallback to an empty array
-  const [playerCard, setPlayerCard] = useState(() => {
-    const savedPlayers = localStorage.getItem("players");
-    return savedPlayers ? JSON.parse(savedPlayers) : [];
-  });
+  const [players, setPlayers] = useState<Player[]>([]);
+  const [editPlayerId, setEditPlayerId] = useState<number | null>(null);
+  const [editFormData, setEditFormData] = useState<Partial<Player>>({});
+  const apiUrl = "http://localhost:5000/players";
+
+  // Fetch players from JSON Server on component mount
+  useEffect(() => {
+    const fetchPlayers = async () => {
+      try {
+        const response = await axios.get<Player[]>(apiUrl);
+        setPlayers(response.data);
+      } catch (error) {
+        console.error("Error fetching players:", error);
+      }
+    };
+
+    fetchPlayers();
+  }, []);
 
   // Delete player handler
-  const handleDelete = (playerId: number) => {
-    // Filter out the player with the given ID
-    const updatedList = playerCard.filter((player: Player) => player.id !== playerId);
+  const handleDelete = async (playerId: number) => {
+    try {
+      await axios.delete(`${apiUrl}/${playerId}`);
+      setPlayers((prev) => prev.filter((player) => player.id !== playerId));
+    } catch (error) {
+      console.error("Error deleting player:", error);
+    }
+  };
 
-    // Update the state and save the updated list to localStorage
-    setPlayerCard(updatedList);
-    localStorage.setItem("players", JSON.stringify(updatedList));
+  // Edit button handler
+  const handleEditClick = (player: Player) => {
+    setEditPlayerId(player.id); // Set the ID of the player being edited
+    setEditFormData(player); // Populate form with existing player data
+  };
+
+  // Handle changes in the edit form
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setEditFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Save updated player
+  const handleSave = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editPlayerId) return;
+
+    try {
+      const updatedPlayer = { ...editFormData, id: editPlayerId };
+      await axios.put(`${apiUrl}/${editPlayerId}`, updatedPlayer);
+      setPlayers((prev) =>
+        prev.map((player) =>
+          player.id === editPlayerId ? (updatedPlayer as Player) : player
+        )
+      );
+      setEditPlayerId(null); // Exit editing mode
+      setEditFormData({});
+    } catch (error) {
+      console.error("Error saving player:", error);
+    }
+  };
+
+  // Cancel editing
+  const handleCancelEdit = () => {
+    setEditPlayerId(null);
+    setEditFormData({});
   };
 
   return (
     <div className="player-card-container">
-      {playerCard.length === 0 ? (
+      {players.length === 0 ? (
         <p>No players available.</p>
       ) : (
-        playerCard.map((player: Player) => (
+        players.map((player) => (
           <div className="player-card" key={player.id}>
-            <h2 className="player-name" contentEditable>{player.name}</h2>
-            <h4>Date of Birth: {player.birth}</h4>
-            <h4>Sport Field: {player.sport}</h4>
-            <h4>Team: {player.team}</h4>
-            <Button
-              variant="contained"
-              type="button"
-              onClick={() => handleDelete(player.id)}
-            >
-              Delete Player
-            </Button>
+            {editPlayerId === player.id ? (
+              <form onSubmit={handleSave}>
+                <input
+                  type="text"
+                  name="name"
+                  value={editFormData.name || ""}
+                  onChange={handleFormChange}
+                  placeholder="Player Name"
+                  
+                  style={{ width: "250px" }}
+                />
+                <input
+                  type="date"
+                  name="birth"
+                  value={editFormData.birth || ""}
+                  onChange={handleFormChange}
+                  
+                  style={{ width: "250px" }}
+                />
+                <input
+                  type="text"
+                  name="sport"
+                  value={editFormData.sport || ""}
+                  onChange={handleFormChange}
+                  placeholder="Sport Field"
+                  
+                  style={{ width: "250px" }}
+                />
+                <input
+                  type="text"
+                  name="team"
+                  value={editFormData.team || ""}
+                  onChange={handleFormChange}
+                  placeholder="Team"
+                
+                  style={{ width: "250px" }}
+                />
+                <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
+                <Button type="submit" variant="contained" color="primary"
+                 style={{ width: "100px", marginLeft:"17px", marginRight: "  15px"}}>
+                  Save
+                </Button>
+                <Button
+                  type="button"
+                  variant="outlined"
+                  color="secondary"
+                  onClick={handleCancelEdit}
+                  style={{ width: "100px", marginLeft:"17px", marginRight: "  15px"}}
+                >
+                  Cancel
+                </Button>
+                </div>
+
+
+              </form>
+            ) : (
+              <>
+                <h2 className="player-name">{player.name}</h2>
+                <h4>Date of Birth: {player.birth}</h4>
+                <h4>Sport Field: {player.sport}</h4>
+                <h4>Team: {player.team}</h4>
+                <div style={{ display: "flex", gap: "5px", marginTop: "10px", marginRight: "  15px"}}>
+                <Button
+                  variant="contained"
+                  type="button"
+                  onClick={() => handleDelete(player.id)}
+                
+                  style={{ width: "100px"}}
+                
+                >
+                  Delete
+                </Button>
+                <Button
+                  variant="contained"
+                  type="button"
+                  onClick={() => handleEditClick(player)}
+                  style={{ width: "100px"}}
+                >
+                  Edit
+                </Button> </div>
+              </>
+             
+            )}
           </div>
         ))
       )}
