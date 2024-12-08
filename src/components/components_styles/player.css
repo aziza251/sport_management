@@ -1,13 +1,11 @@
 .player-card-container {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal columns */
-   /* Space between cards */
-    margin-top: 200px; /* Space above the container */
-    
-    padding: 10px; /* Padding around the container */
-    border-radius: 10px; /* Rounded corners */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    margin-top: 10px; 
+    padding: 10px; 
+    border-radius: 10px; 
     gap: 50px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
   }
   
   .player-card {

@@ -1,24 +1,23 @@
 /* TeamCard.css */
 /* ParentContainer.css */
-.parent-container {
+ .parent-container {
     width: 100%; /* Full width */
-    height: 100vh; /* Full viewport height */
+    height: 20vh; /* Full viewport height */
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    /* Optional: for visual contrast */
     padding: 0; /* No padding, so the card can expand fully */
   }
   
   .team-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+    
+    gap: 5px;
    /* Adjust for sidebar */
-   margin-top: 120px;
+   margin-top: 10px;
    border-color: aliceblue;
-    padding: 20px;
+    padding: 5px;
   }
 
 .team-card {
@@ -45,7 +44,7 @@
   
   .team-card-info {
     margin-left: 10px; 
-    color: aliceblue;/* Optional: add some space between header and info */
+    color: aliceblue;
   }
   
   

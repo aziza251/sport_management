@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
 import "./components_styles/player.css";
+import Create_Team from "./Create_Team";
+
 
 type Player = {
   id: number;
@@ -10,6 +12,7 @@ type Player = {
   sport: string;
   team: string;
 };
+
 
 const Player = () => {
   const [players, setPlayers] = useState<Player[]>([]);
@@ -83,6 +86,7 @@ const Player = () => {
   };
 
   return (
+    
     <div className="player-card-container">
       {players.length === 0 ? (
         <p>No players available.</p>
@@ -146,6 +150,7 @@ const Player = () => {
               </form>
             ) : (
               <>
+             
                 <h2 className="player-name">{player.name}</h2>
                 <h4>Date of Birth: {player.birth}</h4>
                 <h4>Sport Field: {player.sport}</h4>
@@ -169,14 +174,19 @@ const Player = () => {
                 >
                   Edit
                 </Button> </div>
+                
+
               </>
              
             )}
           </div>
         ))
       )}
+        
     </div>
+    
   );
+
 };
 
 export default Player;
