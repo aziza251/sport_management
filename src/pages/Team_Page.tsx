@@ -4,14 +4,14 @@ import Footer from "../components/Footer";
 import  './pages_styles/home.css';
 import Team from "../components/Team";
 import '../components/components_styles/teamlist.css';
-import TeamStatus from '../components/TeamStatus';
+
 
 const Team_Page = () => {
   
   return (
     <div>
       <Header_Main />
-      <div className="parent-container" style={{ marginTop: '100px', marginBottom: '30px' }}>
+      <div className="parent-container" style={{ marginTop: '350px', marginBottom: '30px' }}>
         <Team />
       </div>
       <Footer />

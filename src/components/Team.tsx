@@ -144,7 +144,7 @@ const TeamDetails = () => {
         alignItems: "center",
         flexDirection: "column",
         padding: "10px",
-        minHeight: "140vh",
+        minHeight: "180vh",
         marginTop: "450px",
       
       }}

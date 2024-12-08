@@ -2,7 +2,7 @@ import React from 'react'
 import Header_Main from '../components/Header_Main'
 import Footer from '../components/Footer'
 import Player from '../components/Player';
-import TeamStatus from '../components/TeamStatus';
+
 
 
 const Player_Page = () => {

@@ -90,7 +90,7 @@
     {
       "id": "2",
       "team_name": "Ctrl Alt Defeat",
-      "num_of_members": 12,
+      "num_of_members": 17,
       "member1": "Ronaldo",
       "member2": "Messi",
       "member3": "Aziza",
@@ -102,21 +102,26 @@
       "member9": "Ezz",
       "member10": "Ahmed",
       "member11": "New Player",
-      "member12": "New Player"
+      "member12": "New Player",
+      "member13": "New Player",
+      "member14": "New Player",
+      "member15": "New Player",
+      "member16": "New Player",
+      "member17": "New Player"
     },
     {
       "id": "3",
       "team_name": "Pixel",
-      "num_of_members": 5,
+      "num_of_members": 11,
       "member1": "Abdullah",
       "member2": "Ezz",
       "member3": "Ahmed",
-      "member6": "",
-      "member7": "",
-      "member8": "",
-      "member9": "",
-      "member10": "",
-      "member11": "",
+      "member6": "New Player",
+      "member7": "New Player",
+      "member8": "New Player",
+      "member9": "New Player",
+      "member10": "New Player",
+      "member11": "New Player",
       "member4": "New Player",
       "member5": "New Player"
     }
