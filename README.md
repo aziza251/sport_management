@@ -1,7 +1,9 @@
 Please change the branch to master to view project details
 
 To run the project:
+
 npm run dev ---> to run typscript code (in src folder)
+
 json-server --watch db.json --port 5000 ---> to run the database (in data folder)
 
 Sports Management System
