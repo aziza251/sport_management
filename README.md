@@ -4,7 +4,7 @@ To run the project:
 
 npm run dev ---> to run typscript code (in src folder)
 
-json-server --watch db.json --port 5000 ---> to run the database (in data folder)
+json-server --watch db.json --port 5000 ---> to run the backend (in data folder)
 
 Sports Management System
 
