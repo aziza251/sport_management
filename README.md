@@ -1,4 +1,4 @@
-Please change the branch to master to view project details
+
 
 To run the project:
 
